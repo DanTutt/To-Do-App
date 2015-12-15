@@ -1,0 +1,11 @@
+<div ng-init="[]" class="alert alert-success">
+    <div>To Do:</div>
+    <form ng-class="{bold: important}" >
+        <input type="text" ng-model="bc.newItem" />
+        <button type="submit" ng-click="bc.doSomething(); removeRed()" >Add</button>
+    </form>
+    <div ng-repeat="myList in bc.list" ng-class="{strike: myList.done}" class="boldText">
+        <input type="checkbox"  ng-model="myList.done" /> {{$index + 1}}:  <span ng-bind="myList.item"></span></h4>
+    </div>
+    <button ng-click="bc.deleteItem()">Remove marked</button>
+</div>
