@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
 
 </head>
-<body>
+<body id="mainPage" ng-controller="basicController as bc">
 
     <!-- Navigation Bar -->
     <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
@@ -26,6 +26,7 @@
             <!-- Collection of nav links and other content for toggling -->
             <div id="navbarCollapse" class="collapse navbar-collapse" ng-controller="navController as nav">
                 <ul class="nav navbar-nav">
+                    <!--<li><a ng-click="bc.newList()">Add New List</a></li>-->
                     <li ng-class="{ active: nav.isActive('/home')}"><a ui-sref="home">To Do 1</a></li>
                     <li ng-class="{ active: nav.isActive('/about')}"><a ui-sref="about">About</a></li>
                     <li ng-class="{ active: nav.isActive('/contact')}"><a ui-sref="contact">Contact</a></li>
@@ -49,6 +50,7 @@
     <script type="text/javascript" src="js/navController.js"></script>
     <script type="text/javascript" src="js/basicController.js"></script>
     <script type="text/javascript" src="js/contactController.js"></script>
+    <!--<script type="text/javascript" src="js/newInitService.js"></script>-->
     <script type="text/javascript" src="js/app.js"></script>
 
 </body>
