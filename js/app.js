@@ -6,6 +6,7 @@
         "navController",
         "basicController",
         "contactController",
+        "listService"
     ])
 
     .config(["$stateProvider", "$urlRouterProvider",
@@ -33,3 +34,4 @@
         }]);
 
 }());
+

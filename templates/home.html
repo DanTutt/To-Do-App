@@ -1,20 +1,29 @@
 <div ng-init="[]" class="alert alert-success">
-    <div>To Do:</div>
+    <form>Add New List:<br>
+        <input type="text" ng-model="bc.anotherList" ng-change="bc.hide()" placeholder="  Enter New List."/>
+        <button type="submit" ng-click="bc.newList()" class="btn btn-success" >Add</button><br><p id="invalidList">Invalid Entry</p>
+    </form>
+
+    <div>Created Lists</div>
+    <br>
+    <button contenteditable="true" ng-repeat="recentList in bc.listNames" ng-click="bc.changeList($index)"  ng-class="{bold: important}" class="btn btn-info">{{recentList}}
+    </button>
+    <br>
+    <br>
+    <br>
+    <div>To Do Task:</div>
     <form ng-class="{bold: important}" >
-        <input type="text" ng-model="bc.newItem" ng-change="bc.hide()" placeholder="Enter to-do item here."/>
-        <button type="submit" ng-click="bc.doSomething(); removeRed()" >Add</button><br><p>Invalid Entry</p>
+        <input type="text" ng-model="bc.newItem" ng-change="bc.hide()" placeholder="  Enter to-do Task."/>
+        <button type="submit" ng-click="bc.doSomething(); removeRed()" class="btn btn-success">Add</button><br><p id="invalidItem">Invalid Entry</p>
     </form>
     <br>
-    <div ng-repeat="myList in bc.list" ng-class="{strike: myList.done}" class="boldText">
-        <input type="checkbox"  ng-model="myList.done" /> {{$index + 1}}:  <span ng-bind="myList.item"></span></h4>
+    <div ng-repeat="myList in bc.list | filter:{listNum:bc.currentList}" ng-class="{strike: myList.done}" class="boldText">
+        <input type="checkbox"  ng-model="myList.done" /> {{$index + 1}}:  <span ng-bind="myList.name"></span>
     </div>
-    <button ng-click="bc.deleteItem()">Remove marked</button>
+    <br>
+    <button ng-click="bc.deleteItem()" class="btn btn-primary">Remove Finished Tasks</button>
     <br>
     <br>
-    <input type="text" ng-model="bc.anotherList" ng-change="bc.hide()" placeholder="Enter to-do item here."/>
-    <button type="submit" ng-click="bc.newList()" >Add</button><br><p>Invalid Entry</p>
-    <div ng-repeat="recentList in bc.addedList" ng-class="{strike: recentList.done}" class="boldText">
-        <input type="checkbox"  ng-model="recentList.done" /> {{$index + 1}}:  <span ng-bind="recentList.name"></span></h4>
-    </div>
-
+    <br>
 </div>
+

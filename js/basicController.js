@@ -4,35 +4,38 @@
     angular.module('basicController', [])
         .controller('basicController', basicController);
 
-    basicController.$inject = [];
+    basicController.$inject = ["listService"];
 
     function basicController(listService) {
 
         // list everything
         var bc = this;
-        bc.list = [];
+        bc.list = listService.items;
         bc.addedList = [];
         bc.addTo = '';
         bc.anotherList = '';
         bc.newItem = '';
+        bc.currentList = listService.currentList;
         bc.sometext = 'default value';
         bc.doSomething = doSomething;
         bc.deleteItem = deleteItem;
         bc.hide = hide;
         bc.newList = newList;
-        //bc.listNames = listService.listName;
-        //bc.addList = addList;
+        bc.listNames = listService.listName;
+        bc.addList = addList;
+        bc.changeList = changeList;
+
 
 
             // define functions
         function doSomething() {
             if(bc.newItem !== "") {
-                bc.list.push({item: bc.newItem, done: false});
+                listService.addItem(bc.newItem);
                 bc.newItem = '';
 
             }
             else{
-                $("p").addClass("showText");
+                $("#invalidItem").addClass("showText");
             }
         }
         function deleteItem(){
@@ -48,14 +51,28 @@
 
         }
         function newList() {
-            bc.addedList.push({name: bc.anotherList, done: false});
-            bc.anotherList = '';
+            if(bc.anotherList !== "") {
+                listService.addList(bc.anotherList);
+                bc.anotherList = '';
 
+            }
+            //    bc.addedList.push({name: bc.anotherList, done: false});
+            //}
+            //
+            else {
+                $("#invalidList").addClass("showText");
         }
-        //function addList() {
-        //    listService.addList(bc.listName);
-        //}
+        }
+
+        function addList() {
+            listService.addList(bc.listNames);
+        }
+        function changeList(index) {
+            bc.currentList = index;
+            listService.changeList(index);
+        }
     }
 
 }());
+
 

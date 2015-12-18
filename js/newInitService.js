@@ -14,12 +14,20 @@
         ls.items = [];
         ls.listName = ['First List'];
         ls.addList = addList;
+        ls.changeList = changeList;
+        ls.addItem = addItem;
 
-        function addList() {
+        function addList(listName) {
             //
             ls.listCount++;
             ls.currentList = ls.listCount-1;
-            ls.listNames.push(listName);
+            ls.listName.push (listName);
+        }
+        function changeList(listNumber){
+            ls.currentList = listNumber;
+        }
+        function addItem(itemName){
+            ls.items.push({name: itemName, listNum: ls.currentList});
         }
     }
 

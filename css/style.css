@@ -12,13 +12,13 @@ body, .alert, .container, [ui-view] {
 }
 #mainPage {
     font-size: large;
-    font-family: fantasy;
+    font-family: cursive;
 }
 input[type=text], button {
     border: black 1px solid;
     text-align: left;
-    margin: 5px;
-    padding-top: 10px;
+    padding: 5px;
+    padding-right: 10px;
     border-radius: 5px;
 }
 .strike{
@@ -53,4 +53,7 @@ button:hover {
     -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
     -o-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+}
+.btn-info{
+    margin-right: 10px;
 }
