@@ -3,24 +3,28 @@
         <input type="text" ng-model="bc.anotherList" ng-change="bc.hide()" placeholder="  Enter New List."/>
         <button type="submit" ng-click="bc.newList()" class="btn btn-success" >Add</button><br><p id="invalidList">Invalid Entry</p>
     </form>
-
-    <div>Created Lists</div>
     <br>
-    <button contenteditable="true" ng-repeat="recentList in bc.listNames" ng-click="bc.changeList($index)"  ng-class="{bold: important}" class="btn btn-info">{{recentList}}
+    <div>Created Lists:
+     <button contenteditable="true" ng-repeat="recentList in bc.listNames" ng-click="bc.changeList($index)"  ng-class="{bold: important}" class="btn btn-info">{{recentList}}
+    </div>
     </button>
     <br>
     <br>
     <br>
-    <div>To Do Task:</div>
+    <div>To-Do Task:</div>
+    <div id="warning">*Make sure you select your list before adding tasks, or it will be added to your most recent.</div>
+
     <form ng-class="{bold: important}" >
         <input type="text" ng-model="bc.newItem" ng-change="bc.hide()" placeholder="  Enter to-do Task."/>
-        <button type="submit" ng-click="bc.doSomething(); removeRed()" class="btn btn-success">Add</button><br><p id="invalidItem">Invalid Entry</p>
+        <button type="submit" ng-click="bc.addTasks(); removeRed()" class="btn btn-success">Add</button><br><p id="invalidItem">Invalid Entry</p>
     </form>
     <br>
     <div ng-repeat="myList in bc.list | filter:{listNum:bc.currentList}" ng-class="{strike: myList.done}" class="boldText">
         <input type="checkbox"  ng-model="myList.done" /> {{$index + 1}}:  <span ng-bind="myList.name"></span>
     </div>
     <br>
+    <div id="warning">*Check box when finished.</div>
+
     <button ng-click="bc.deleteItem()" class="btn btn-primary">Remove Finished Tasks</button>
     <br>
     <br>

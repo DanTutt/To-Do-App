@@ -57,3 +57,8 @@ button:hover {
 .btn-info{
     margin-right: 10px;
 }
+#warning{
+    font-family: cursive;
+    color: #d3901f;
+    font-size: small;
+}

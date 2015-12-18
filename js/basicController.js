@@ -17,7 +17,7 @@
         bc.newItem = '';
         bc.currentList = listService.currentList;
         bc.sometext = 'default value';
-        bc.doSomething = doSomething;
+        bc.addTasks = addTasks;
         bc.deleteItem = deleteItem;
         bc.hide = hide;
         bc.newList = newList;
@@ -28,11 +28,10 @@
 
 
             // define functions
-        function doSomething() {
+        function addTasks() {
             if(bc.newItem !== "") {
                 listService.addItem(bc.newItem);
                 bc.newItem = '';
-
             }
             else{
                 $("#invalidItem").addClass("showText");
@@ -42,8 +41,11 @@
             var oldList = bc.list;
             bc.list = [];
             angular.forEach(oldList, function (myList) {
-                if (!myList.done) bc.list.push(myList);
+                if (!myList.done)
+                    bc.list.push(myList);
+
             });
+
         }
 
         function hide(){
@@ -54,6 +56,7 @@
             if(bc.anotherList !== "") {
                 listService.addList(bc.anotherList);
                 bc.anotherList = '';
+
 
             }
             //    bc.addedList.push({name: bc.anotherList, done: false});
