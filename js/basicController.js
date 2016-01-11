@@ -50,8 +50,6 @@
                 $("#invalidItem").addClass("showText");
             }
         }
-
-
         function hide(){
             $("p").removeClass("showText");
 

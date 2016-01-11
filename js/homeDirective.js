@@ -11,7 +11,7 @@
     function tdHeader(){
         return{
             restrict: 'E',
-            template: '<div class="col-md-12 text-center"><h3>To-Do List</h3></div>'
+            template: '<div class="col-md-12 text-center"><h1>To-Do List</h1></div>'
         };
     }
     function tdInvalidEntry(){
