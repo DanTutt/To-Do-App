@@ -1,7 +1,10 @@
 <div ng-init="[]" class="alert alert-success">
+    <td-header></td-header>
     <form>Add New List:<br>
         <input type="text" ng-model="bc.anotherList" ng-change="bc.hide()" placeholder="  Enter New List."/>
-        <button type="submit" ng-click="bc.newList()" class="btn btn-success" >Add</button><br><p id="invalidList">Invalid Entry</p>
+        <button type="submit" ng-click="bc.newList()" class="btn btn-success" >Add</button>
+        <br>
+        <td-invalid-entry></td-invalid-entry>
     </form>
     <br>
     <div>Created Lists:
@@ -16,16 +19,15 @@
 
     <form ng-class="{bold: important}" >
         <input type="text" ng-model="bc.newItem" ng-change="bc.hide()" placeholder="  Enter to-do Task."/>
-        <button type="submit" ng-click="bc.addTasks(); removeRed()" class="btn btn-success">Add</button><br><p id="invalidItem">Invalid Entry</p>
+        <button type="submit" ng-click="bc.addTasks(); removeRed()" class="btn btn-success">Add</button><br><td-invalid-item></td-invalid-item>
     </form>
     <br>
-    <div ng-repeat="myList in bc.list | filter:{listNum:bc.currentList}" ng-class="{strike: myList.done}" class="boldText">
-        <input type="checkbox"  ng-model="myList.done" /> {{$index + 1}}:  <span ng-bind="myList.name"></span>
+    <div td-add-item ng-repeat="myList in bc.list | filter:{listNum:bc.currentList}" my-list="myList" index="$index + 1">
     </div>
     <br>
     <div id="warning">*Check box when finished.</div>
 
-    <button ng-click="bc.deleteItem()" class="btn btn-primary">Remove Finished Tasks</button>
+    <button id="hideButton" ng-click="bc.deleteItem()" class="btn btn-primary">Remove Finished Tasks</button>
     <br>
     <br>
     <br>

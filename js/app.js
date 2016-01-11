@@ -6,7 +6,8 @@
         "navController",
         "basicController",
         "contactController",
-        "listService"
+        "listService",
+        "homeDirective"
     ])
 
     .config(["$stateProvider", "$urlRouterProvider",

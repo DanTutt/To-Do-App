@@ -28,25 +28,29 @@
 
 
             // define functions
-        function addTasks() {
-            if(bc.newItem !== "") {
-                listService.addItem(bc.newItem);
-                bc.newItem = '';
-            }
-            else{
-                $("#invalidItem").addClass("showText");
-            }
-        }
         function deleteItem(){
             var oldList = bc.list;
             bc.list = [];
             angular.forEach(oldList, function (myList) {
                 if (!myList.done)
                     bc.list.push(myList);
-
             });
+            listService.items = bc.list;
 
         }
+
+        function addTasks() {
+            if(bc.newItem !== "") {
+                listService.addItem(bc.newItem);
+                bc.newItem = '';
+
+            }
+
+            else{
+                $("#invalidItem").addClass("showText");
+            }
+        }
+
 
         function hide(){
             $("p").removeClass("showText");
