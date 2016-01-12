@@ -4,9 +4,9 @@
     angular.module('basicController', [])
         .controller('basicController', basicController);
 
-    basicController.$inject = ["listService"];
+    basicController.$inject = ["$filter", "listService"];
 
-    function basicController(listService) {
+    function basicController($filter, listService) {
 
         // list everything
         var bc = this;
@@ -15,6 +15,8 @@
         bc.addTo = '';
         bc.anotherList = '';
         bc.newItem = '';
+        bc.filteredItem = '';
+        bc.filteredList = '';
         bc.currentList = listService.currentList;
         bc.sometext = 'default value';
         bc.addTasks = addTasks;
@@ -41,7 +43,8 @@
 
         function addTasks() {
             if(bc.newItem !== "") {
-                listService.addItem(bc.newItem);
+                bc.filteredItem = $filter("myCapsFilter")(bc.newItem);
+                listService.addItem(bc.filteredItem);
                 bc.newItem = '';
 
             }
@@ -56,7 +59,8 @@
         }
         function newList() {
             if(bc.anotherList !== "") {
-                listService.addList(bc.anotherList);
+                bc.filteredList = $filter("myCapsFilter")(bc.anotherList);
+                listService.addList(bc.filteredList);
                 bc.anotherList = '';
 
 
@@ -76,6 +80,7 @@
             bc.currentList = index;
             listService.changeList(index);
         }
+
     }
 
 }());
