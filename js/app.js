@@ -8,7 +8,8 @@
         "contactController",
         "listService",
         "homeDirective",
-        "myFilter"
+        "myFilter",
+        "ngAnimate"
     ])
 
     .config(["$stateProvider", "$urlRouterProvider",

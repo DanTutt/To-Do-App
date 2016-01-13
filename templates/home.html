@@ -1,35 +1,42 @@
 <div ng-init="[]" class="alert alert-success">
     <td-header></td-header>
-    <form>Add New List:<br>
-        <input type="text" ng-model="bc.anotherList" ng-change="bc.hide()" placeholder="  Enter New List."/>
-        <button type="submit" ng-click="bc.newList()" class="btn btn-success" >Add</button>
+    <div id="todoList">
+        <form>Add New List:<br>
+            <input type="text" ng-model="bc.anotherList" ng-change="bc.hide()" placeholder="  Enter New List."/>
+            <button type="submit" ng-click="bc.newList()" class="btn btn-success" >Add</button>
+            <br>
+            <td-invalid-entry></td-invalid-entry>
+        </form>
         <br>
-        <td-invalid-entry></td-invalid-entry>
-    </form>
-    <br>
-    <div>Created Lists:
-     <button contenteditable="true" ng-repeat="recentList in bc.listNames" ng-click="bc.changeList($index)"  ng-class="{bold: important}" class="btn btn-info">{{recentList}}
-    </div>
-    </button>
-    <br>
-    <br>
-    <br>
-    <div>To-Do Task:</div>
-    <div id="warning">*Make sure you select your list before adding tasks, or it will be added to your most recent.</div>
+        <div>Created Lists:
+            <button contenteditable="true" ng-repeat="recentList in bc.listNames" ng-click="bc.changeList($index)"  ng-class="{bold: important}" class="btn btn-info">{{recentList}}
+        </div>
+        </button>
+        <br>
+        <br>
+        <br>
+        </div>
+    <div id="taskList">
+        <div>To-Do Task:</div>
+        <div id="warning">*Make sure you select your list before adding tasks, or it will be added to your most recent.</div>
 
-    <form ng-class="{bold: important}" >
-        <input type="text" ng-model="bc.newItem" ng-change="bc.hide()" placeholder="  Enter to-do Task."/>
-        <button type="submit" ng-click="bc.addTasks(); removeRed()" class="btn btn-success">Add</button><br><td-invalid-item></td-invalid-item>
-    </form>
-    <br>
-    <div td-add-item ng-repeat="myList in bc.list | filter:{listNum:bc.currentList}" my-list="myList" index="$index + 1">
-    </div>
-    <br>
-    <div id="warning">*Check box when finished.</div>
+        <form ng-class="{bold: important}">
+            <input type="text" ng-model="bc.newItem" ng-change="bc.hide()" placeholder="  Enter to-do Task."/>
+            <button type="submit" ng-click="bc.addTasks(); removeRed()" class="btn btn-success">Add</button><br><td-invalid-item></td-invalid-item>
+            <br>
+            <td-no-tasks></td-no-tasks>
+        </form>
+        <br>
+        <div td-add-item ng-repeat="myList in bc.list | filter:{listNum:bc.currentList}" my-list="myList" index="$index + 1">
+        </div>
 
-    <button id="hideButton" ng-click="bc.deleteItem()" class="btn btn-primary">Remove Finished Tasks</button>
-    <br>
-    <br>
-    <br>
+        <br>
+        <div id="warning">*Check box when finished.</div>
+
+        <button id="hideButton" ng-click="bc.deleteItem()" class="btn btn-primary">Remove Finished Tasks</button>
+        <br>
+        <br>
+        <br>
+    </div>
 </div>
 

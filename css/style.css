@@ -39,6 +39,10 @@ p{
     color: red;
     margin-top: 10px;
 }
+#noTasks{
+    color: red;
+    margin-top: 10px;
+}
 .showText{
     display: block;
 }
@@ -67,4 +71,58 @@ button:hover {
     font-family: cursive;
     color: #d3901f;
     font-size: small;
+}
+#taskList{
+    border: double;
+    padding: 25px;
+}
+#todoList{
+    border: double;
+    padding: 25px;
+}
+.ui-view-container {
+    position: relative;
+    height: 65px;
+}
+
+[ui-view].ng-enter, [ui-view].ng-leave {
+    position: relative;
+    transform: scale(3);
+    -ms-transform: scale(3);
+    -webkit-transform: scale(3);
+    transition-duration: 450ms;
+    -webkit-transition-duration: 450ms;
+    opacity: 0;
+}
+
+[ui-view].ng-enter {
+    transform: rotate(720deg);
+    -ms-transform: rotate(720deg);
+    -webkit-transform: rotate(720deg);
+    transition-duration: 1000ms;
+    -webkit-transition-duration: 1000ms;
+    opacity: 0;
+}
+
+[ui-view].ng-enter-active {
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    opacity: 1;
+}
+
+[ui-view].ng-leave {
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transition-duration: 250ms;
+    -webkit-transition-duration: 250ms;
+    opacity: 1;
+}
+
+[ui-view].ng-leave-active {
+    transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    opacity: 0;
 }

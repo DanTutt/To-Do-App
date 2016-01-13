@@ -25,7 +25,7 @@
         bc.newList = newList;
         bc.listNames = listService.listName;
         bc.addList = addList;
-        bc.changeList = changeList;
+        bc.currentList = changeList;
 
 
 

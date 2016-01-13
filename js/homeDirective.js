@@ -6,6 +6,7 @@
         .directive('tdInvalidEntry', tdInvalidEntry)
         .directive('tdInvalidItem', tdInvalidItem)
         .directive('tdAddItem', tdAddItem)
+        .directive('tdNoTasks', tdNoTasks)
         .controller('tdAddItemController', tdAddItemController);
 
     function tdHeader(){
@@ -40,6 +41,12 @@
     function tdAddItemController(){
         var ai = this;
         ai.index;
+    }
+    function tdNoTasks(){
+        return{
+            restrict: 'E',
+            template: '<div id="noTasks" ng-hide="bc.list.length">No Tasks to Display</div>'
+        };
     }
 
 }());
