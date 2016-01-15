@@ -12,10 +12,11 @@
         ls.currentList = 0;
         ls.listCount = 1;
         ls.items = [];
-        ls.listName = ['First List'];
+        ls.listName = [];
         ls.addList = addList;
         ls.changeList = changeList;
         ls.addItem = addItem;
+        ls.removeAll = removeAll;
 
         function addList(listName) {
             //
@@ -43,8 +44,13 @@
                 ls.items = $localStorage.items;
             }
         })();
+        function removeAll(list, tasks) {
+            ls.items = list;
+            ls.listName = tasks;
+            $localStorage.listName = ls.listName;
+            $localStorage.items = ls.items;
+
+        }
     }
 
-}());/**
- * Created by DanTutt on 12/17/15.
- */
+}());

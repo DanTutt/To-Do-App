@@ -3,6 +3,7 @@ body {
     margin-right: 10%;
     background-image: url("grey.jpg");
     background-size: 100%;
+    color: black;
 }
 h3 {
     margin-top: 0;
@@ -26,6 +27,10 @@ input[type=text], button {
     padding: 5px;
     padding-right: 10px;
     border-radius: 5px;
+}
+.listBG{
+    background-image: url("mainbg.jpeg");
+    background-size: 100%;
 }
 .strike{
     text-decoration: line-through;
@@ -74,11 +79,26 @@ button:hover {
 }
 #taskList{
     border: double;
+    border-color: lightblue;
     padding: 25px;
 }
 #todoList{
     border: double;
+    border-color: lightblue;
     padding: 25px;
+}
+.pageText{
+    color: white;
+}
+.inputText{
+    color: green;
+}
+div{
+    color: yellow;
+}
+#deleteAllbtn{
+    color: red;
+    background-color: gainsboro;
 }
 .ui-view-container {
     position: relative;
@@ -96,11 +116,11 @@ button:hover {
 }
 
 [ui-view].ng-enter {
-    transform: rotate(720deg);
-    -ms-transform: rotate(720deg);
-    -webkit-transform: rotate(720deg);
-    transition-duration: 1000ms;
-    -webkit-transition-duration: 1000ms;
+    transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    transition-duration: 250ms;
+    -webkit-transition-duration: 250ms;
     opacity: 0;
 }
 

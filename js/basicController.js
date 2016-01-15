@@ -25,7 +25,8 @@
         bc.newList = newList;
         bc.listNames = listService.listName;
         bc.addList = addList;
-        bc.currentList = changeList;
+        bc.removeAll = removeAll;
+        bc.changeList = changeList;
 
 
 
@@ -80,7 +81,12 @@
             bc.currentList = index;
             listService.changeList(index);
         }
-
+        function removeAll() {
+            bc.list = [];
+            bc.listNames = [];
+            listService.removeAll(bc.list, bc.listNames);
+            confirm('WARNING: This will remove ALL lists and tasks. Are you sure you want to Remove All?');
+        }
     }
 
 }());

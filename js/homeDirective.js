@@ -12,7 +12,7 @@
     function tdHeader(){
         return{
             restrict: 'E',
-            template: '<div class="col-md-12 text-center"><h1>To-Do List</h1></div>'
+            template: '<div class="col-md-12 text-center pageText"><h1>To-Do List</h1></div>'
         };
     }
     function tdInvalidEntry(){
@@ -45,7 +45,7 @@
     function tdNoTasks(){
         return{
             restrict: 'E',
-            template: '<div id="noTasks" ng-hide="bc.list.length">No Tasks to Display</div>'
+            template: '<div id="noTasks" ng-hide="listNone.length">No Tasks to Display</div>'
         };
     }
 
